@@ -1,2 +1,2 @@
 
-Code for SVM with Laplace Kernel
+Code for SVM with Bessel Kernel
