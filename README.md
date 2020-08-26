@@ -23,6 +23,19 @@ The second real data study is a reference case study based on the IEEE Recommend
 
 
 The folders within this repository are organised as follows:
-- Data: the speech signals are provided 
+- Data:
+       the speech signals are provided within two different folders, one for each experiment. Both in-samples and out-of-samples are provided. In the body of the paper,
+       we described the results for Speaker 1 (the female voice) only, therefore we put in these folders the female voices. Male speech signals may also be available under              request.
+
 - Code: 
+       - For each speaker, both synthetic and real voices, we produce a file creating the required model or time-series in R called, for example, "SPEAKER1_MODEL" for the real            Speaker or "SYNTHETIC_MODEL", for the synthetic one. Afterwards, the EMD is applied and the IMFs are extracted. Note that when the code is run, results need to be saved          by the user. A second file is then the one extracting the features required for the SVM, called "Speaker1_Extraxtion_feeature" or "Synthetic_Extraxtion_feeature" These          files extract the instantaneous frequencies, the statistics and the spline coefficients. These features are then passed through the file "Preprocessing_1", which                standardise the feature. For the EMD-MFCCs, another file is generated, called "SYNT_SPEAK1_CEPSTRUM_IMF_FEATURE". Note that depending on the experiment, the directory            needs to be updated along with the m parameter representing the number of sentences (i.e. for Ex.1 m = 100, while for Ex.2 m = 72). This also applies in the case of the          in-sample-analysis (as before) and out-of-sample analysis (i.e. for Ex.1 m = 20, while for Ex.2 m = 72). Once that the features are extracted, they can be passed                through the code for the SVM provided in the following folders.
+       - InSample_Code:
+         In this folder, we entered the code used for the in-sample analysis. As above, directory and the m parameter have to be updated when running the code. The folder                contains one file for the SVMs related to each features and R files generating the final tables.
+       - OutOfSample_Code:
+         In this folder, we entered the code used for the out-of-sample analysis. As above, directory and the m parameter have to be updated when running the code. The folder            contains one file for the SVMs related to each features and R files generating the final tables.
+       - MultiKernelLearning:
+         In this folder, we entered the code used for the Multi-Kernel Learning Experiments. Results are provided in the body of the paper. We divided the folders with                    respect to the two experiments, given that we computed the weights and the functions used for the MKL. Such functions are passed to the SVM main function. 
+         
+         
+For any queries, I am avaliable at marta.campi.15@ucl.ac.uk or marta.campi.11@gmail.com
 
